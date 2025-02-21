@@ -1,0 +1,36 @@
+.main-box {
+    background-color: #808080;
+    color: #2E3E3F;
+    opacity: 60%;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30vw;
+    height: 50vh;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1%;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+
+.main-box:hover {
+    opacity: 100%;
+    box-shadow: 10px;
+    transition: 0.5s;
+}
+
+.sign-up-link {
+    color: #2E3E3F;
+    text-decoration: none;
+}
+
+.sign-up-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 650px) {
+    .main-box {
+        width: 90%;
+    }
+}

@@ -1,0 +1,65 @@
+{% extends 'shared/layout.html' %}
+
+{% block extraCSS %}
+<link rel="stylesheet" href="../static/board_list/css/board_list.css">
+{% endblock %}
+
+{% block maincontent %}
+<div id="boards">
+    {% for board in boardsData %}
+        <div id="{{ board['board_id'] }}" class="board" onclick="OpenBoard(event)">
+            <h3 id="{{ board['board_id'] }}" class="board-name" onclick="OpenBoard(event)">{{ board['name'] if (board['name'] | length <= 11) else (board['name'][0:11] + "...") }}</h3>
+        </div>
+    {% endfor %}
+</div>
+
+<br>
+<hr class="separation-line">
+<br>
+
+<div id="add_board" class="board">
+    <h3 class="board-name">+ Add Board</h3>
+</div>
+
+<dialog id="board_dialog">
+    <form>
+        <label for="name">Board Name</label>
+        <br>
+        <input id="name" type="text"/>
+
+        <br>
+        <br>
+
+        <label for="description">Board Description</label>
+        <br>
+        <textarea id="description"></textarea>
+
+        <br>
+        <br>
+
+        <p>Users</p>
+        <button id="add_user">Add User</button>
+        
+        <br>
+        <br>
+
+        <div id="users" class="users">
+        </div>
+
+        <br>
+        <br>
+
+        <button id="add">
+            <strong>Add Board</strong>
+        </button>
+        <button id="cancel">
+            <strong>Cancel</strong>
+        </button>
+    </form>
+</dialog>
+{% endblock %}
+
+{% block extraJS %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../static/board_list/js/board_list.js"></script>
+{% endblock %}

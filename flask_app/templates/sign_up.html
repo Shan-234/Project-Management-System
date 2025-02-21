@@ -1,0 +1,40 @@
+{% extends 'shared/layout.html' %}
+
+{% block extraCSS %}
+<link rel="stylesheet" href="../static/sign_up/css/sign_up.css">
+{% endblock %}
+
+{% block maincontent %}
+<form class="sign-up-form">
+    <label for="email"><strong>Email:</strong></label>
+    <br>
+    <input class="info-input" id="email" type="text" />
+
+    <br>
+    <br>
+
+    <label for="password"><strong>Password:</strong></label>
+    <br>
+    <input class="info-input" id="password" type="password"/>
+
+    <br>
+    <br>
+
+    <label for="password_confirmation"><strong>Confirm Password:</strong></label>
+    <br>
+    <input class="info-input" id="password_confirmation" type="password"/>
+
+    <br>
+    <br>
+
+    <div class="evaluation-area">
+        <button id="submit_info" class="submit-button">Sign Up</button>
+        <p id="user_exists" class="exists-message"></p>
+    </div>
+</form>
+{% endblock %}
+
+{% block extraJS %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../static/sign_up/js/sign_up.js"></script>
+{% endblock %}

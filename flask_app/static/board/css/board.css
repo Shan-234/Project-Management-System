@@ -1,0 +1,84 @@
+.lists {
+    display: flex;
+    column-gap: 10%;
+    margin-top: 2%;
+    align-items: flex-start;
+}
+
+.separation-line {
+    border: 1px dotted #000000;
+}
+
+.list {
+    text-align: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #808080;
+    border-radius: 20px;
+    padding: 2%;
+    border: 2px solid #000000;
+    width: 15vw;
+}
+
+.add-card-button {
+    padding: 2%;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.add-card-button:hover {
+    text-decoration: underline;
+}
+
+.card {
+    border-radius: 20px;
+    border: 3px solid #000000;
+    margin-top: 2%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2%;
+    width: fit-content;
+    background-color: #F5F5DC;
+}
+
+.chat {
+    background-color: #808080;
+    opacity: 90%;
+    width: 20vw;
+    height: 100vh;
+    border-radius: 20px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 2px solid #000000;
+}
+
+.messages {
+    height: 70%;
+    overflow: auto;
+}
+
+.self-message {
+    color: #0000FF;
+    text-align: right;
+}
+
+.other-message {
+    text-align: left;
+}
+
+@media (max-width: 650px) {
+    .lists {
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .chat {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        width: 40vw;
+        height: 90vh;
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html class="page-style" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Project Management System</title>
+        <link rel="stylesheet" href="../../static/layout/css/layout.css">
+        {% block extraCSS %}{% endblock %}
+    </head>
+
+    <div class="top-style">
+        <header class="header-style">
+        </header>
+
+        <nav class="nav-style">
+            <div class="title">
+                {% if user_email == "Unknown" %}
+                <p>Project Management System</p>
+                {% else %}
+                    <p>Welcome, {{ user_email }}</p>
+                {% endif %}
+            </div>
+            
+            <div class="links">
+                <a href="/home" class="nav-link">
+                    <p>Home</p>
+                </a>
+                <a href="/boards" class="nav-link">
+                    <p>Boards</p>
+                </a>
+                {% if user_email == "Unknown" %}
+                    <a href="/sign_in" class="nav-link">
+                        <p>Sign In</p>
+                    </a>
+                {% else %}
+                    <a href="/sign_out" class="nav-link">
+                        <p>Sign Out</p>
+                    </a>
+                {% endif %}
+            </div>
+        </nav>
+    </div>
+
+    <body>
+        <main>
+            {% block maincontent %}{% endblock %}
+        </main>
+
+        <footer>
+
+        </footer>
+    </body>
+
+    <script src="../../static/layout/js/layout.js"></script>
+    {% block extraJS %}{% endblock %}
+</html>

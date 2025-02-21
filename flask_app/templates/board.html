@@ -1,0 +1,77 @@
+{% extends 'shared/layout.html' %}
+
+{% block extraCSS %}
+<link rel="stylesheet" href="../static/board/css/board.css">
+{% endblock %}
+
+{% block maincontent %}
+<div class="lists">
+    {% for list_id in lists_data %}
+        <div id="{{ list_id }}" class="list">
+            <h3>{{ lists_data[list_id]['list_data']['name'] }}</h3>
+            <hr class="separation-line">
+            <div id="{{ list_id }}_cards" class="cards">
+                {% for card_data in lists_data[list_id]['cards_data'] %}
+                    <div id="{{ card_data['card_id'] }}_card" class="card">
+                        <label for="{{ card_data['card_id'] }}_card_name">Name:</label>
+                        <br>
+                        <input id="{{ card_data['card_id'] }}_card_name" type="text" value="{{ card_data['name'] }}" readonly/>
+                        
+                        <br>
+                        <br>
+
+                        <label for="{{ card_data['card_id'] }}_card_descr">Description:</label>
+                        <br>
+                        <textarea id="{{ card_data['card_id'] }}_card_descr" readonly>{{ card_data['description'] }}</textarea>
+                        
+                        <br>
+                        <br>
+                        
+                        <button id="{{ card_data['card_id'] }}_edit" class="edit" onclick="OnEdit(event)">Edit</button>
+                        <button id="{{ card_data['card_id'] }}_delete" class="delete" onclick="OnDelete(event)">Delete</button>
+                    </div>
+                {% endfor %}
+            </div>
+            <br>
+            <button class="add-card-button" onclick="OnAddCard(event)">Add Card</button>
+        </div>
+    {% endfor %}
+    <div class="chat">
+        <h4>Chat</h4>
+        <hr>
+        <div id="messages" class="messages">
+        </div>
+        <hr>
+        <br>
+        <input id="input_message" type="text" placeholder="Type Your Message..."/>
+    </div>
+</div>
+
+<dialog id="card_dialog">
+    <form>
+        <label for="name">Card Name</label>
+        <br>
+        <input id="name" type="text"/>
+
+        <br>
+        <br>
+
+        <label for="descr">Card Description:</label>
+        <br>
+        <textarea id="descr"></textarea>
+
+        <br>
+        <br>
+
+        <button id="add_card">Add Card</button>
+        <button id="cancel">Cancel</button>
+    </form>
+</dialog>
+{% endblock %}
+
+{% block extraJS %}
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+<script type="text/javascript" src="//code.jquery.com/jquery-1.4.2.min.js"></script>
+<script src="https://cdn.socket.io/3.1.1/socket.io.min.js"></script>
+<script src="../static/board/js/board.js"></script>
+{% endblock %}
